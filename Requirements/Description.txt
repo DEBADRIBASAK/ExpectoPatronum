@@ -1,0 +1,1 @@
+This folder contains the requirement analysis and specification details of the software
