@@ -1,0 +1,21 @@
+I have prepared the django backend and raw html files for achieving basic finctionalities. Since we are supposed to show only a part of the project
+after puja vacation, I think this much of work is enough. Now I would like to give you the following responsibilities:
+
+Ankit and Aditya: 
+Find out the raw html files in templates folder of BPO_app/HRO and add css, js etc. Make it as attractive as possible.
+If you want to use css files externally, add those files in static folder.Clone this repository and make changes locally and push the changes
+to the original repo.
+
+Nimisha and Harini: 
+Make the DFD using MS Paint or some other software and add that image file to this repo before 20th October.
+
+Bhaskar: Update the README.md file and try to write a detailed documentation of the project. THIS IS NOT SRS DOCUMENT, JUST WRITE WHAT EXACTLY
+WE ARE DOING IN THIS PROJECT.
+
+Surya:
+Are you in this team? Type 'yes' if you have read this :p
+
+**** Follow online tutorials for any doubts***
+**I am doing, and you guys also contribute to the SRS**
+** Ankit ,Aditya and Nimisha....you guys tell Ma'am on 22nd that I will come on 23rd and we will show the project on that day***
+**No need to be afraid...git is always there to out the last consistent version and restore it****
