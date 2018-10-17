@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<title>
+		Profile Page
+	</title>
+</head>
+<body>
+	<h1>{{ Company.Name }}</h1><br>
+	{% if Company.Organization %}
+	<h2>is an organization</h2>
+	{% endif %}
+	<h3>{{ Company.PhoneNo }}</h3><br>
+	<h3>{{ Company.EmailID }}</h3><br>
+	<h3>{{ Company.Fax }}</h3><br>
+	<h2>{% url 'log_out' %}</h2>
+<a href="{% url 'log_out' %}" class="btn btn-lg btn-danger">LogOut</a><br>
+<a href="{% url 'show' %}" class="btn btn-lg btn-primary">HR Information</a>
+<a href="{% url 'upload' %}" class="btn btn-lg btn-primary">HRO</a><br>
+<a href="#" class="btn btn-lg btn-success">ECM</a><br>
+<a href="#" class="btn btn-lg btn-warning">HCA</a><br>
+
+
+</body>
+</html>

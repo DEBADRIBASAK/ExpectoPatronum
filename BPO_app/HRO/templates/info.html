@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		HR Information
+	</title>
+</head>
+<body>
+<table>
+	<thead><tr>
+				<th>HEIGHT</th>
+<th>WEIGHT</th>
+	</tr>
+
+	</thead>
+<tbody>
+	{% for value in data %}
+	<tr>
+{% for any in value %}
+<td>{{ any }}</td>
+{% endfor %}
+</tr>
+{% endfor %}
+</tbody>
+
+</table>
+</body>
+</html>

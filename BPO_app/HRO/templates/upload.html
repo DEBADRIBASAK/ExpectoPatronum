@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		HR Info uploader
+	</title>
+</head>
+<body>
+	<h1>Upload the HR Information</h1><br>
+<form method='post' enctype="multipart/form-data">
+	{% csrf_token %}
+	<input type="file" name="HR_Info">
+	<button type="submit">Submit</button>
+</form>
+</body>
+</html>

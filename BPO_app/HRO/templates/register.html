@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Registration for organisations
+	</title>
+</head>
+<body>
+	<form method="post" action="">
+	{% csrf_token %}
+	<label>Username:</label>
+	<input type="text" name="Username"><br>
+	<label>Password:</label> 
+	<input type="password" name="Password"><br>
+	<label>Confirm Password:</label>
+	<input type="password" name="Confirm Password">
+	{% if is_wrong %}
+	<label>Error: confirmation password does not match with actual password</label>
+	{% endif %}
+	<br>
+	<label>Name:</label>
+	<input type="text" name="Name"><br>
+	<label>Are you an Organization?</label>
+	<input type="checkbox" name="Organization"><br>
+	<label>Phone No:</label>
+	<input type="text" name="Phone"><br>
+	<label>Email ID:</label>
+	<input type="text" name="EmailID"><br>
+	<label>Fax:</label>
+	<input type="text" name="Fax"><br>
+	<button type="submit">Register</button><br>
+	</form>
+</body>
+</html>
