@@ -47,7 +47,7 @@ def LogIn(request):
 		obj = Company.objects.get(username=usr)
 		return render(request,'profile.html',{'Company':obj})
 	elif request.method=='POST':
-		print("post============",request.POST)
+		#print("post============",request.POST)
 		name = request.POST['username']
 		passwrd = request.POST['password']
 		try:
@@ -90,8 +90,40 @@ def HR_Information(request):
 	if request.method=='GET':
 		if obj1.HR_Info:
 			path = settings.MEDIA_ROOT+'/'+str(obj1.HR_Info)
-			data = pd.read_csv(path)
+			dateparse = lambda dates: [pd.datetime.strptime(d, '%d/%m/%Y') for d in dates]
+			data = pd.read_csv(path, parse_dates=['JoiningDate'],date_parser=dateparse)
 			data = np.array(data)
-			print('\n\n\n',data)
 			return render(request,'info.html',{'data':data})
+		else:
+			return HttpResponse('<h1>You Have not uploaded HR Info yet</h1>')
+	elif request.method=='POST':
+		if obj1.HR_Info:
+			path = settings.MEDIA_ROOT+'/'+str(obj1.HR_Info)
+			dateparse = lambda dates: [pd.datetime.strptime(d, '%d/%m/%Y') for d in dates]
+			data = pd.read_csv(path, parse_dates=['JoiningDate'],date_parser=dateparse)
+			print("data = ",data)
+			EmployeeID = False
+			Name = False
+			JoiningDate = False
+			Age = False
+			Salary = False
+			if 'EmployeeID' in request.POST:
+				EmployeeID = True
+				data = data.sort_values(['EmployeeID'],ascending=[1])
+			elif 'Name' in request.POST:
+				Name = True
+				data = data.sort_values(['Name'],ascending=[1])
+			elif 'JoiningDate' in request.POST:
+				JoiningDate = True
+				data = data.sort_values(['JoiningDate'],ascending=[1])
+			elif 'Age' in request.POST:
+				Age = True
+				data = data.sort_values(['Age'],ascending=[1])
+			elif 'Salary' in request.POST:
+				Salary = True
+				data = data.sort_values(['Salary'],ascending=[1])
+			data = np.array(data)
+			return render(request,'info.html',{'data':data,'E':EmployeeID,'N':Name,'J':JoiningDate,'A':Age,'S':Salary})
+		else:
+			return HttpResponse('<h1>You Have not uploaded HR Info yet</h1>')
 	return render(request,'profile.html',{'Company':obj1})

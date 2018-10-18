@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+			<link href='https://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		.Upload{
+			background-color: #99ccff;
+			border-radius: 50%;
+			  position: relative;
+  	display: inline-block;
+  	width: 100px;
+  	height: 100px;
+  	color: #ffffff;
+  	font-size: 20px;
+		}
+		.Upload input{
+			opacity: 0;
+			width: 0;
+			height: 0;
+		}
+
+	</style>
 	<title>
 		HR Info uploader
 	</title>
 </head>
-<body>
+<body class="text-center">
 	<h1>Upload the HR Information</h1><br>
+	<h2>The information must be uploaded in form of a CSV file</h2><br>
+	<h2>The format for the CSV file must be 'EmplyeeID',Name','JoiningDate','Age','Salary'</h2>
 <form method='post' enctype="multipart/form-data">
 	{% csrf_token %}
-	<input type="file" name="HR_Info">
-	<button type="submit">Submit</button>
+	<!-- <label class="Upload text-center"> -->
+	<input type="file" name="HR_Info"><br>
+	<!-- <strong><span class="fa fa-lg fa-upload"></span></strong> -->
+	<!-- </label> -->
+	<!-- <br> -->
+	<button type="submit" class="btn btn-success">Submit</button>
 </form>
 </body>
 </html>
