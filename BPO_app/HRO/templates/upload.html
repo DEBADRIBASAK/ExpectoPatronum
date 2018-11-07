@@ -26,16 +26,6 @@
   display: inline-block;
 }
 
-/*.btn {
-  border: 2px solid gray;
-  color: gray;
-  background-color: white;
-  padding: 8px 20px;
-  border-radius: 8px;
-  font-size: 20px;
-  font-weight: bold;
-}*/
-
 .upload-btn-wrapper input[type=file] {
   font-size: 100px;
   position: absolute;
@@ -43,26 +33,176 @@
   top: 0;
   opacity: 0;
 }
+.navbar-default{
+  background:#0f0403;
+  /* background: #fff; */
+  border:0;
+  font-family:'Poppins';
+}
+body {
+	margin-top: 50px;
+	background:#f2cdcd;
+	/* background: #d7dfea; */
+}
+.navbar-brand{
+  font-size:25px;
+  color:#063e70 !important;
+  font-weight:bold;
+}
+.xyz{
+	font-size:20px;
+    color:#063e70 !important;
+    font-weight:bold;
+}
+.xyz :hover{
+	color:white !important;
+	font-weight: bold;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family:'Poppins';
+}
+#first{
+	/* margin:top:60px; */
+	padding-top:20px;
+	padding-bottom: 30px;
+	background: #d7dfea;
+}
+#second{
+	text-align: center;
+	background:#f2cdcd;
+}
+ul { display:table; margin:0 auto;}
+label.btn span {
+  font-size: 1.5em ;
+}
+
+label input[type="radio"] ~ i.fa.fa-circle-o{
+    color: #c8c8c8;    display: inline;
+}
+label input[type="radio"] ~ i.fa.fa-dot-circle-o{
+    display: none;
+}
+label input[type="radio"]:checked ~ i.fa.fa-circle-o{
+    display: none;
+}
+label input[type="radio"]:checked ~ i.fa.fa-dot-circle-o{
+    color: #7AA3CC;    display: inline;
+}
+label:hover input[type="radio"] ~ i.fa {
+color: #7AA3CC;
+}
+div[data-toggle="buttons"] label.active{
+    color: #7AA3CC;
+}
+
+div[data-toggle="buttons"] label {
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: normal;
+line-height: 2em;
+text-align: left;
+white-space: nowrap;
+vertical-align: top;
+cursor: pointer;
+background-color: none;
+border: 0px solid
+#c8c8c8;
+border-radius: 3px;
+color: black;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+}
+
+div[data-toggle="buttons"] label:hover {
+color: #7AA3CC;
+}
+
+div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active {
+-webkit-box-shadow: none;
+box-shadow: none;
+}
 	</style>
 	<title>
 		HR Info uploader
 	</title>
 </head>
-<body class="text-center">
-	<h1>Upload the HR Information</h1><br>
-	<h2>The information must be uploaded in form of a CSV file</h2><br>
-	<h2>The format for the CSV file must be 'EmplyeeID',Name','JoiningDate','Age','Salary'</h2>
-<form method='post' enctype="multipart/form-data">
-	{% csrf_token %}
+
+<body>
+	<nav class="navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toogle="collapse" data-target="#navbar" aria-expanded="false"aria-controls="navbar">
+				  <span class="sr-only">Toggle-navigation</span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Theme</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				<li class="xyz"><a class="xyz" href="#showcase" >Home</a></li>
+				<li class="xyz"><a class="xyz" href="#info1">About</a></li>
+				<li class="xyz"><a class="xyz" href="#contact">Contact</a></li>
+			  </ul>
+			</div>
+		</div>
+	</nav>
+	<section id="first">
+	<h1 class="text-center" >Upload the HR Information</h1><br>
+	<!-- {% csrf_token %} -->
 	<!-- <label class="Upload text-center"> -->
-		<div class="upload-btn-wrapper">
+	<div style="text-align:center">
+		<div class="text-center upload-btn-wrapper">
   <button class="btn btn-primary">Upload a file</button>
   <input type="file" name="HR_Info" required><br>
 </div><br>
-	<!-- <strong><span class="fa fa-lg fa-upload"></span></strong> -->
-	<!-- </label> -->
-	<!-- <br> -->
-	<button type="submit" class="btn btn-success"><span class="fa fa-lg fa-upload"></span></button>
+</div>
+<div style="text-align:center">
+    <button type="submit" class="btn btn-success text-center"><span class="fa fa-lg fa-upload"></span></button>
+</div>
+
+	<ul >
+		<li> <h2>The information must be uploaded in form of a CSV file</h2></li>
+		<li> <h2>The format for the CSV file must be 'EmplyeeID',Name','JoiningDate','Age','Salary'</h2> </li>
+	</ul>
+<form method='post' enctype="multipart/form-data">
+
 </form>
+</section>
+<!-- <hr> -->
+<section id="second">
+<div class="container">
+
+
+  <div class="row">
+    <div class="col-xs-12">
+	 <h1 class="text-center" >Select HRO Service</h1><br>
+      <br>
+      <div class="btn-group btn-group-vertical" data-toggle="buttons">
+        <label class="btn">
+          <input type="radio" name='gender1'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i> <span>  Installation Service</span>
+        </label>
+        <label class="btn">
+          <input type="radio" name='gender1'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Maintenance</span>
+        </label>
+		<label class="btn">
+          <input type="radio" name='gender1'><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> Surveillance</span>
+        </label>
+      </div>
+
+    </div>
+</div>
+</div>
+<br>
+<div style="text-align:center">
+    <button type="submit" class="btn btn-success text-center btn-lg">Submit</button>
+</div>
+</section>
 </body>
 </html>
